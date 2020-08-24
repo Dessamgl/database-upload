@@ -24,7 +24,7 @@ class Transaction {
   @Column('decimal')
   value: number;
 
-  @ManyToOne(() => Category)
+  @ManyToOne(() => Category, category => category.transaction, { eager: true })
   @JoinColumn({ name: 'category_id' })//identificar a coluna que está sendo utilizada para fazer o relacionamento
   category: Category;
 
